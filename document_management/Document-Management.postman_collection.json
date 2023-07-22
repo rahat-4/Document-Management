@@ -1,0 +1,394 @@
+{
+	"info": {
+		"_postman_id": "e23af363-77c0-4b2b-b0f7-4234bcee3021",
+		"name": "Document-Management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26565171",
+		"_collection_link": "https://lunar-crescent-501420.postman.co/workspace/New-Team-Workspace~dc23ee37-debb-4733-9be8-bb82b11ddce1/collection/26565171-e23af363-77c0-4b2b-b0f7-4234bcee3021?action=share&creator=26565171&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\": \"Mainul\",\r\n    \"last_name\": \"Rahat\",\r\n    \"email\": \"mr@example.com\",\r\n    \"date_of_birth\": \"2000-01-01\",\r\n    \"gender\": \"MALE\",\r\n    \"password\": \"test123pass\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{users}}/register/",
+							"host": [
+								"{{users}}"
+							],
+							"path": [
+								"register",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "another-register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\": \"Rahat\",\r\n    \"last_name\": \"Islam\",\r\n    \"email\": \"ri@example.com\",\r\n    \"date_of_birth\": \"2000-01-01\",\r\n    \"gender\": \"MALE\",\r\n    \"password\": \"test123pass\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{users}}/register/",
+							"host": [
+								"{{users}}"
+							],
+							"path": [
+								"register",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user-list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{users}}/",
+							"host": [
+								"{{users}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Documents",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"ri@example.com\",\r\n    \"password\": \"test123pass\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{users}}/login/",
+							"host": [
+								"{{users}}"
+							],
+							"path": [
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "document-create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjkwMDExMjY3LCJpYXQiOjE2OTAwMTA5NjcsImp0aSI6IjBmNDFiNDU0N2Y3ZTQzNTY5MzYyYTVmMDMzMzNhY2MxIiwidXNlcl9pZCI6M30.EOBwrV3lb9b9sTG5Si9R5qDW7xS0TQB9ARPHPmkwtZc",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "fileitem",
+									"type": "file",
+									"src": "/C:/Users/hp/Downloads/w.docx"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{documents}}/",
+							"host": [
+								"{{documents}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "document-list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{documents}}/",
+							"host": [
+								"{{documents}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "document-search",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{documents}}/?search=Assignment",
+							"host": [
+								"{{documents}}"
+							],
+							"path": [
+								""
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "Assignment"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "document-retrieve",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{documents}}/e1da4959-0ea0-44f2-9c90-9db8aa8042ee/",
+							"host": [
+								"{{documents}}"
+							],
+							"path": [
+								"e1da4959-0ea0-44f2-9c90-9db8aa8042ee",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "document-update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\": \"Update jjjjj\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{documents}}/496ff619-5275-4107-8331-fa71f8ad7635/",
+							"host": [
+								"{{documents}}"
+							],
+							"path": [
+								"496ff619-5275-4107-8331-fa71f8ad7635",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "document-delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{documents}}/e1da4959-0ea0-44f2-9c90-9db8aa8042ee/",
+							"host": [
+								"{{documents}}"
+							],
+							"path": [
+								"e1da4959-0ea0-44f2-9c90-9db8aa8042ee",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "document-share",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"receiver\": \"9ddfdbfc-4924-4f89-b0f7-bf333a20b55c\",\r\n    \"fileitem\": \"578bb4a3-d3cf-4c74-9892-1d21066f546a\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{documents}}/share/",
+							"host": [
+								"{{documents}}"
+							],
+							"path": [
+								"share",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "document-share-list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{documents}}/share",
+							"host": [
+								"{{documents}}"
+							],
+							"path": [
+								"share"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "document-receive-list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{documents}}/receive",
+							"host": [
+								"{{documents}}"
+							],
+							"path": [
+								"receive"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "document-download",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{documents}}/578bb4a3-d3cf-4c74-9892-1d21066f546a/download",
+							"host": [
+								"{{documents}}"
+							],
+							"path": [
+								"578bb4a3-d3cf-4c74-9892-1d21066f546a",
+								"download"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjkwMDQxNzk4LCJpYXQiOjE2OTAwMzgxOTgsImp0aSI6IjBmMDI4ZmY2MmViNjRmOWU4MmE1ZmRkYzgxNzIwOWU1IiwidXNlcl9pZCI6Mn0.Ay7oAgK4CDwg9oeGfC4BOAnm_pUC0OHzF1Wk6vS94XE",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	]
+}
